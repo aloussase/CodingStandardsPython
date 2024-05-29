@@ -15,12 +15,12 @@ class passanger:
 
     def validNumber(self):
         print("this working here")
-        return self.num is int and self.num > 0
+        return self.num is int and self.num > 0 and self.num < 80
 
     def forHereDiscount(self):
         if 4 < self.num < 10:
             return 0.1
-        elif self.num <= 10:
+        elif self.num >= 10:
             return 0.2
         # TODO: add more discount levels if needed
         else:
@@ -94,6 +94,7 @@ class Vacation_:
         numberTotal += self.myclass.get_extraCost(self.dist)
         numberTotal += self.total_TIME.getFee()
         numberTotal -= self.total_TIME.getTheBestPromoEver()
+        numberTotal += 200 if self.passagner.num == 2 else 0
 
         discount = self.passagner.forHereDiscount()
         numberTotal = numberTotal - (numberTotal * discount)
